@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B40FE3E4-8F49-418C-AF4A-732895A675ED}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VOG.IntegracionEmpresasParalelas</RootNamespace>
+    <AssemblyName>VOG.IntegracionEmpresasParalelas</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Dynamics.GP.eConnect, Version=14.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\Microsoft.Dynamics.GP.eConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics.GP.eConnect.Serialization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\Microsoft.Dynamics.GP.eConnect.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\cCompanyParalela.cs" />
+    <Compile Include="Controller\cSalesDocParalelo.cs" />
+    <Compile Include="Controller\cSalesDocProductivo.cs" />
+    <Compile Include="Data\dCompanyParalela_D.cs" />
+    <Compile Include="Data\dCompanyParalela_U.cs" />
+    <Compile Include="Data\dCompanyParalela_I.cs" />
+    <Compile Include="Data\dCompanyParalela_S.cs" />
+    <Compile Include="Data\dRollBackProd_D.cs" />
+    <Compile Include="Data\dSalesDocParaleloDet_S.cs" />
+    <Compile Include="Data\dSalesDocParaleloImp_S.cs" />
+    <Compile Include="Data\dSalesDocParaleloTax_S.cs" />
+    <Compile Include="Data\dSalesDocParaleloUserDef_S.cs" />
+    <Compile Include="Data\dSalesDocProdDet_I.cs" />
+    <Compile Include="Data\dSalesDocProdEnc_I.cs" />
+    <Compile Include="Data\dSalesDocProdEnc_S.cs" />
+    <Compile Include="Data\dSalesDocParaleloEnc_S.cs" />
+    <Compile Include="Data\dSalesDocProdImp_I.cs" />
+    <Compile Include="Data\dSalesDocProdStock_V.cs" />
+    <Compile Include="Data\dSalesDocProdTax_I.cs" />
+    <Compile Include="Data\dSalesDocProdUserDef_I.cs" />
+    <Compile Include="Data\dSalesDocProd_V.cs" />
+    <Compile Include="Data\dSopNextDoc_U.cs" />
+    <Compile Include="Entities\clsDataJson.cs" />
+    <Compile Include="Entities\clsMsjRespuesta.cs" />
+    <Compile Include="Entities\clsServerConection.cs" />
+    <Compile Include="Entities\eCompanyParalela.cs" />
+    <Compile Include="Entities\eFacturasParalela.cs" />
+    <Compile Include="Entities\eFacturasProductivo.cs" />
+    <Compile Include="Entities\eFiltro.cs" />
+    <Compile Include="Entities\eImpuestoVOG.cs" />
+    <Compile Include="Entities\SMTPData.cs" />
+    <Compile Include="Entities\sysGlobales.cs" />
+    <Compile Include="frmConfParalelas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfParalelas.Designer.cs">
+      <DependentUpon>frmConfParalelas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipalIntegracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipalIntegracion.Designer.cs">
+      <DependentUpon>frmPrincipalIntegracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProcesaIntegracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProcesaIntegracion.Designer.cs">
+      <DependentUpon>frmProcesaIntegracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysFunctions\cEncrip.cs" />
+    <Compile Include="SysFunctions\SendMailSMTP.cs" />
+    <Compile Include="SysFunctions\sysConexionSQL.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmConfParalelas.resx">
+      <DependentUpon>frmConfParalelas.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipalIntegracion.resx">
+      <DependentUpon>frmPrincipalIntegracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProcesaIntegracion.resx">
+      <DependentUpon>frmProcesaIntegracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="appconfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Data\ScriptsSQL\CreaTablas.sql" />
+    <Content Include="Data\ScriptsSQL\pl_BuscarEncSopProd_VOG.sql" />
+    <Content Include="Data\ScriptsSQL\PR_COMPANYPARALELA_VOG_D.sql" />
+    <Content Include="Data\ScriptsSQL\PR_COMPANYPARALELA_VOG_I.sql" />
+    <Content Include="Data\ScriptsSQL\PR_COMPANYPARALELA_VOG_S.sql" />
+    <Content Include="Data\ScriptsSQL\PR_COMPANYPARALELA_VOG_U.sql" />
+    <Content Include="Data\ScriptsSQL\pr_SOP10100_VOG_S.sql" />
+    <Content Include="Data\ScriptsSQL\pr_SOP10200_VOG_S.sql" />
+    <Content Include="Resources\Images\24-7-256.png" />
+    <Content Include="Resources\Images\Add-New-256.png" />
+    <Content Include="Resources\Images\Clean-256.png" />
+    <Content Include="Resources\Images\Data-Add-256.png" />
+    <Content Include="Resources\Images\Data-Connect-256.png" />
+    <Content Include="Resources\Images\Data-Delete-256.png" />
+    <Content Include="Resources\Images\Document-01-256.png" />
+    <Content Include="Resources\Images\Document-Download-01-256.png" />
+    <Content Include="Resources\Images\Floppy-256.png" />
+    <Content Include="Resources\Images\Folder-Open-256.png" />
+    <Content Include="Resources\Images\Help-256.png" />
+    <Content Include="Resources\Images\Logout-128.png" />
+    <Content Include="Resources\Images\Microsoft-Excel-01-256 %281%29.png" />
+    <Content Include="Resources\Images\Network-01-256.png" />
+    <Content Include="Resources\Images\oie_VeqwviOtbNqh.png" />
+    <Content Include="Resources\Images\Search-Find-256.png" />
+    <Content Include="Resources\Images\Verify-256.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

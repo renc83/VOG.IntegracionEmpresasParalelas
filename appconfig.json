@@ -1,0 +1,15 @@
+{
+  "ServerName": "SUMPERU-TIL",
+  "DatabaseName": "ALIB5",
+  "UsuarioID": "sa",
+  "Password": "Pssw0rd",
+  "RutaTxt": "",
+  "DestinatarioCorreo": "renc83@gmail.com",
+  "SMTP": {
+    "Server": "smtp.gmail.com",
+    "Username": "VOG365vzla@gmail.com",
+    "Password": "drozhtqestvkgtwj",
+    "Port": 587,
+    "RemitenteText": "VOG365vzla@gmail.com"
+  }
+}
